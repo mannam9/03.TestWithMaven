@@ -1,0 +1,26 @@
+#surefire
+#Wed Jul 12 15:48:39 EDT 2017
+testClassesDirectory=C\:\\Users\\Huser\\workspace\\03.TestWithMaven\\target\\test-classes
+classPathUrl.4=C\:\\Users\\Huser\\.m2\\repository\\mysql\\mysql-connector-java\\6.0.6\\mysql-connector-java-6.0.6.jar
+classPathUrl.3=C\:\\Users\\Huser\\.m2\\repository\\org\\hamcrest\\hamcrest-core\\1.3\\hamcrest-core-1.3.jar
+classPathUrl.2=C\:\\Users\\Huser\\.m2\\repository\\junit\\junit\\4.12\\junit-4.12.jar
+useManifestOnlyJar=true
+classPathUrl.1=C\:\\Users\\Huser\\workspace\\03.TestWithMaven\\target\\classes
+reportsDirectory=C\:\\Users\\Huser\\workspace\\03.TestWithMaven\\target\\surefire-reports
+classPathUrl.0=C\:\\Users\\Huser\\workspace\\03.TestWithMaven\\target\\test-classes
+providerConfiguration=org.apache.maven.surefire.junit4.JUnit4Provider
+testSuiteDefinitionTestSourceDirectory=C\:\\Users\\Huser\\workspace\\03.TestWithMaven\\src\\test\\java
+surefireClassPathUrl.1=C\:\\Users\\Huser\\.m2\\repository\\org\\apache\\maven\\surefire\\surefire-api\\2.12.4\\surefire-api-2.12.4.jar
+surefireClassPathUrl.0=C\:\\Users\\Huser\\.m2\\repository\\org\\apache\\maven\\surefire\\surefire-junit4\\2.12.4\\surefire-junit4-2.12.4.jar
+runOrder=filesystem
+useSystemClassLoader=true
+excludes0=**/*$*
+isTrimStackTrace=true
+tc.0=ManagementEmployeeTest
+enableAssertions=true
+includes2=**/*TestCase.java
+failIfNoTests=false
+includes1=**/*Test.java
+runStatisticsFile=C\:\\Users\\Huser\\workspace\\03.TestWithMaven\\.surefire-00B91A43887A39E7F152F71E2D068CBCFF7E7A70
+includes0=**/Test*.java
+childDelegation=false
