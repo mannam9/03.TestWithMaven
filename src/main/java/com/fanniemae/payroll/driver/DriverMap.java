@@ -6,8 +6,8 @@ import java.util.Set;
 
 public class DriverMap {
 
-	//The object of this topic is to duscusss Map and HashMap Interface implementation
-	
+	//The object of this topic is to discusss Map and HashMap Interface implementation
+	// my name is sridhar
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
