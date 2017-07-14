@@ -50,4 +50,20 @@ public class CountryRepository extends AbstractSQLDAO
 		return list;
 	}
 
+	@Override
+	public Country findByKey(String key) {
+		// TODO Auto-generated method stub
+		
+		String sql = "select code , name, population  from country "
+				+ " where code = '" +key +"'";
+		System.out.println(sql);
+		super.process(sql);
+		
+		Country country = list.get(0);
+		
+		return (country);
+	}
+
+	
+	
 }

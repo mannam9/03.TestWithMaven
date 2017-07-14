@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.fanniemae.payroll.model.City;
+import com.mysql.cj.mysqlx.ResultCreatingResultListener;
 
 	
 public class CityRepository extends AbstractSQLDAO 
@@ -43,10 +44,25 @@ public class CityRepository extends AbstractSQLDAO
 	public ArrayList<City> findAll() {
 		// TODO Auto-generated method stub
 		String sql = "select id , name, population  from city";
-
 		super.process(sql);
-		
 		return list;
 	}
 
+	@Override
+	public City findByKey(String key) {
+		// TODO Auto-generated method stub
+		
+		String sql = "select id , name, population  from city "
+				+ "where id = " + key;
+		System.out.println(sql);
+		super.process(sql);
+		
+		City city = list.get(0);
+		
+		return city;
+				
+		//return IQuery.super.findByKey(key);
+	}
+
+	
 }
