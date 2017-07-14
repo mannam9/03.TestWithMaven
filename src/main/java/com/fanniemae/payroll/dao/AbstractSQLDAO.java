@@ -9,27 +9,58 @@ import org.apache.commons.dbcp.BasicDataSource;
 
 public abstract class AbstractSQLDAO {
 
-	public void process(String sqlStatement) {
+	private BasicDataSource ds = new BasicDataSource();
 
-		BasicDataSource ds = new BasicDataSource();
+	private Connection con = null;
+	private Statement stmt = null;
+	private ResultSet rs = null;
 
-		ds.setDriverClassName("com.mysql.jdbc.Driver");
+	{
+
+		ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		ds.setUsername("hexaware");
 		ds.setPassword("hexaware");
-		ds.setUrl("jdbc:mysql://localhost:3306/world");
+		ds.setUrl("jdbc:mysql://localhost:3306/world?useSSL=false");
 
-		Connection con = null;
-		Statement stmt = null;
-		ResultSet rs = null;
+	}
 
-		try {
-			con = ds.getConnection();
+	public void modify(String sqlStatement) {
+		AutoCloseable c = null;
+		//try catch resource
+		try(Connection con = ds.getConnection();) {
+			//con = ds.getConnection();
+			
+			stmt = con.createStatement();
+			stmt.executeUpdate(sqlStatement);
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+	}
+
+	public void process(String sqlStatement) {
+	
+		AutoCloseable c = null;
+		// move to above --BasicDataSource ds = new BasicDataSource();
+
+		/*
+		 * move to above ds.setDriverClassName("com.mysql.jdbc.Driver");
+		 * ds.setUsername("hexaware"); ds.setPassword("hexaware");
+		 * ds.setUrl("jdbc:mysql://localhost:3306/world");
+		 */
+
+		/*
+		 * move to above --Connection con = null; Statement stmt = null;
+		 * ResultSet rs = null;
+		 */
+		try(Connection con = ds.getConnection();) {
+			//con = ds.getConnection();
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(sqlStatement);
 			while (rs.next()) {
-				
+
 				results(rs);
-				
 
 				/*
 				 * System.out.println("City ID = " + rs.getString("id") +
@@ -40,7 +71,9 @@ public abstract class AbstractSQLDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
+		} 
+		
+/*		close connection with AutoClosable finally {
 			try {
 				if (rs != null)
 					rs.close();
@@ -51,14 +84,10 @@ public abstract class AbstractSQLDAO {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		}
+		}*/
 
 	}
 
-	
-	
 	protected abstract void results(ResultSet rs) throws SQLException;
-	
-	
-	
+
 }
