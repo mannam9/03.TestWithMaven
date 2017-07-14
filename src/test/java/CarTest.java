@@ -24,7 +24,7 @@ public class CarTest {
 		
 		int size = carRep.findMaps().size();
 		
-		assertFalse("Size is: " + size, size==11);
+		assertTrue("Size is: " + size, size==11);
 		
 		//fail("Not yet implemented");
 	}
